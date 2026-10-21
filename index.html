@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Encontre seu próximo veículo na Virtos NSR. Consulte modelos e entre em contato.">
+  <meta name="theme-color" content="#171717">
+  <title>Virtos NSR | Encontre seu próximo carro</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo principal</a>
+
+  <header class="cabecalho">
+    <a href="#inicio" class="logo" aria-label="Virtos NSR - início">
+      VIRTOS <span>NSR</span>
+    </a>
+
+    <button id="botaoMenu" class="botao-menu" type="button"
+      aria-expanded="false" aria-controls="navegacao" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="navegacao" class="navegacao" aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#veiculos">Veículos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#cadastro">Minha conta</a>
+    </nav>
+
+    <div class="acoes-conta">
+      <span id="usuarioLogado" aria-live="polite"></span>
+      <button id="botaoSair" class="botao botao-secundario oculto" type="button">
+        Sair
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio" aria-labelledby="tituloHero">
+      <div class="hero-conteudo">
+        <span class="etiqueta">VIRTOS NSR</span>
+        <h1 id="tituloHero">Seu próximo carro começa aqui.</h1>
+        <p>Explore opções de veículos e encontre aquele que combina com você.</p>
+        <a href="#veiculos" class="botao botao-principal">Explorar veículos</a>
+      </div>
+    </section>
+
+    <section class="secao-veiculos" id="veiculos" aria-labelledby="tituloVeiculos">
+      <div class="titulo-secao">
+        <span class="etiqueta">NOSSO ESTOQUE</span>
+        <h2 id="tituloVeiculos">Encontre seu veículo</h2>
+        <p>Pesquise por modelo ou filtre pela marca.</p>
+      </div>
+
+      <div class="filtros">
+        <label class="sr-only" for="busca">Buscar por nome, modelo ou ano</label>
+        <input type="search" id="busca"
+          placeholder="Buscar por nome ou modelo..." autocomplete="off">
+
+        <label class="sr-only" for="filtroMarca">Filtrar veículos por marca</label>
+        <select id="filtroMarca">
+          <option value="">Todas as marcas</option>
+        </select>
+      </div>
+
+      <p id="contador" class="contador" role="status" aria-live="polite"></p>
+
+      <div id="gradeCarros" class="grade-carros"></div>
+
+      <div id="semResultados" class="sem-resultados oculto" tabindex="-1">
+        <h3>Nenhum veículo encontrado</h3>
+        <p>Tente outra pesquisa ou selecione “Todas as marcas”.</p>
+        <button id="limparFiltros" class="botao botao-secundario" type="button">
+          Limpar filtros
+        </button>
+      </div>
+    </section>
+
+    <section class="secao-sobre" id="sobre" aria-labelledby="tituloSobre">
+      <div>
+        <span class="etiqueta">SOBRE A VIRTOS NSR</span>
+        <h2 id="tituloSobre">Uma escolha inteligente para sua próxima conquista.</h2>
+      </div>
+      <p>
+        A Virtos NSR apresenta um catálogo digital de veículos com busca,
+        filtros e informações de cada modelo. O site foi pensado para facilitar
+        a navegação em computadores e celulares. Os veículos e preços incluídos
+        nesta versão são demonstrativos e devem ser substituídos por informações
+        reais antes de uso comercial.
+      </p>
+    </section>
+
+    <section class="secao-conta" id="cadastro" aria-labelledby="tituloConta">
+      <div class="conta-apresentacao">
+        <span class="etiqueta">ÁREA DO CLIENTE</span>
+        <h2 id="tituloConta">Tenha sua conta na Virtos NSR.</h2>
+        <p>
+          Cadastre seus dados para testar a experiência de criação de conta
+          e entrada neste navegador.
+        </p>
+        <p class="nota-seguranca">
+          Este é um protótipo acadêmico: os dados não são enviados a um servidor
+          nem sincronizados entre dispositivos.
+        </p>
+      </div>
+
+      <div class="painel-conta">
+        <div class="abas-conta" role="group" aria-label="Escolha uma opção de conta">
+          <button type="button" id="abaCadastro" class="aba ativa" aria-pressed="true">
+            Criar cadastro
+          </button>
+          <button type="button" id="abaLogin" class="aba" aria-pressed="false">
+            Entrar
+          </button>
+        </div>
+
+        <form id="formCadastro">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome"
+            placeholder="Digite seu nome" autocomplete="name"
+            minlength="2" maxlength="100" required>
+
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email"
+            placeholder="seuemail@exemplo.com" autocomplete="email"
+            maxlength="254" required>
+
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" name="telefone"
+            placeholder="(00) 00000-0000" autocomplete="tel"
+            inputmode="tel" maxlength="15"
+            aria-describedby="ajudaTelefone" required>
+          <small id="ajudaTelefone" class="ajuda">Informe DDD e número.</small>
+
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha"
+            placeholder="Pelo menos 8 caracteres" autocomplete="new-password"
+            minlength="8" maxlength="128" required>
+
+          <label for="confirmarSenha">Confirmar senha</label>
+          <input type="password" id="confirmarSenha" name="confirmarSenha"
+            placeholder="Digite a senha novamente" autocomplete="new-password"
+            minlength="8" maxlength="128" required>
+
+          <button type="submit" id="botaoCadastro"
+            class="botao botao-principal botao-largo">
+            Salvar cadastro
+          </button>
+        </form>
+
+        <form id="formLogin" class="oculto">
+          <label for="emailLogin">E-mail</label>
+          <input type="email" id="emailLogin" name="emailLogin"
+            placeholder="Seu e-mail cadastrado" autocomplete="username" required>
+
+          <label for="senhaLogin">Senha</label>
+          <input type="password" id="senhaLogin" name="senhaLogin"
+            placeholder="Sua senha" autocomplete="current-password" required>
+
+          <button type="submit" id="botaoLogin"
+            class="botao botao-principal botao-largo">
+            Entrar na conta
+          </button>
+        </form>
+
+        <p id="mensagemConta" class="mensagem" role="status"
+          aria-live="polite" tabindex="-1"></p>
+
+        <p class="aviso-conta">
+          Use apenas dados fictícios neste protótipo. Para um site real,
+          implemente autenticação e banco de dados no servidor.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <a href="#inicio" class="logo">VIRTOS <span>NSR</span></a>
+    <p>© <span id="anoAtual"></span> Virtos NSR. Projeto acadêmico.</p>
+    <a href="#veiculos">Ver veículos</a>
+  </footer>
+
+  <dialog id="modalCarro" class="modal"
+    aria-labelledby="modalNome" aria-describedby="modalDescricao">
+    <button id="fecharModal" class="fechar-modal" type="button"
+      aria-label="Fechar detalhes do veículo">&times;</button>
+
+    <img id="modalImagem" src="" alt="">
+
+    <div class="modal-conteudo">
+      <span id="modalMarca" class="etiqueta"></span>
+      <h2 id="modalNome"></h2>
+      <p id="modalDescricao"></p>
+      <p id="modalAno"></p>
+      <p id="modalKm"></p>
+      <p id="modalCambio"></p>
+      <p id="modalPreco" class="preco-modal"></p>
+
+      <a id="modalWhatsApp" class="botao botao-principal botao-largo"
+        href="#" target="_blank" rel="noopener noreferrer">
+        Consultar pelo WhatsApp
+      </a>
+
+      <p class="aviso-conta">
+        Confirme preço e disponibilidade com a concessionária.
+      </p>
+    </div>
+  </dialog>
+</body>
+</html>
